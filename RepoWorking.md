@@ -15,8 +15,7 @@ The prototype is intended to:
 
 For the prototype, **tabular data (CSV/Excel)** is required.
 
-| year | rainfall_mm | temperature_c | soil_index | irrigation_pct | fertilizer_kg_ha | pest_pressure_index |
-yield_kg_ha |
+| year | rainfall_mm | temperature_c | soil_index | irrigation_pct | fertilizer_kg_ha | pest_pressure_index | yield_kg_ha |
 
 ## File Responsibilities
 
@@ -55,11 +54,14 @@ yield_kg_ha |
   - Saves plots to [output/graphs](./outputs/graphs)
   - Saves plots to [output/reports](./outputs/reports)
 
+
 #### [File 1 : AgriTrend_simulation.py](/AgirTrend_simulation.py)
   - The main file that is used to execute the whole program 
 
+
 #### [File 2 : fileWorking.py](/fileWorking.md)
   - this file itself
+
 
 #### [File 3 : requirements](/requirements.txt)
   - Lists of the required libraries for the smooth execution of the file
