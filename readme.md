@@ -78,8 +78,9 @@ This repository contains a **proof-of-concept prototype** with the following sco
 This project is developed as part of a 4-member team.
 - Abhinav
 - Anubhav
--
--
+- Hariom Chamoli
+- Abhinav Benjwal
+
 Roles will be expanded and formalized in the system design round.
 
 ---
