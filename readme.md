@@ -200,7 +200,7 @@ Planned extensions include:
 - Abhinav
 - Anubhav
 - Hariom Chamoli
-- Abhinav Benjwal
+- 
 
 Roles and responsibilities will be formalized in the system design round.
 
