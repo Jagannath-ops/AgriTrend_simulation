@@ -3,12 +3,19 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 
+# headings are taken from : documentation_code.ipynb so that u can match and understand from teh notebook
+
 
 def train_yield_model(df: pd.DataFrame) -> dict:
     """
-    Trains a standardized linear regression model on historical data.
-    Returns model + scaler.
+    Trains a linear regression model to predict crop yield.
+    Uses historical data with climate, soil, irrigation, fertilizer, and year.
+    All input features are standardized before training.
+    This helps compare factors on the same scale.
+    Returns the trained model, the scaler, and feature names.
+    Output is used later for future yield prediction.
     """
+
     X = df[
         [
             "rainfall_mm",
@@ -34,15 +41,27 @@ def train_yield_model(df: pd.DataFrame) -> dict:
     }
 
 
-def predict_baseline_future(df: pd.DataFrame,model_bundle: dict,years_ahead: int = 10) -> pd.DataFrame:
+######################################################################## 5.a Baseline Future
+
+def predict_baseline_future(df: pd.DataFrame, model_bundle: dict, years_ahead: int = 10) -> pd.DataFrame:
     """
-    Predicts baseline future yield assuming historical trends continue.
+    Predicts future crop yield assuming current trends continue.
+    Uses the trained model and scaler from historical data.
+    Generates future values for rainfall, temperature, soil, irrigation, and fertilizer.
+    No improvements or interventions are applied.
+    This represents a “business as usual” scenario.
+    Returns a DataFrame with future years and predicted baseline yield.
     """
+
+######################################################################## 5.a.1 Create Years
 
     years = df["year"].values
     future_years = np.arange(years[-1] + 1, years[-1] + years_ahead + 1)
 
     n_future = len(future_years)
+
+
+######################################################################## 5.a.1 Create Factors
 
     # rainfall
     baseline_rainfall = 800
@@ -80,7 +99,7 @@ def predict_baseline_future(df: pd.DataFrame,model_bundle: dict,years_ahead: int
 
     baseline_soil_future = np.clip(baseline_soil_future, 0.5, 0.85)
 
-
+    # irrigation
     base_irrigation = 30.0
     irrigation_trend = 1.0
     mean_rainfall = df["rainfall_mm"].mean()
@@ -94,6 +113,7 @@ def predict_baseline_future(df: pd.DataFrame,model_bundle: dict,years_ahead: int
     )
     baseline_irrigation_future = np.clip(baseline_irrigation_future, 30, 70)
 
+    # fertilizer
     base_fertilizer = 80.0
     irrigation_effect = 0.8
     soil_compensation = -60.0
@@ -107,6 +127,9 @@ def predict_baseline_future(df: pd.DataFrame,model_bundle: dict,years_ahead: int
         + np.random.normal(0, 10.0, n_future)
     )
     baseline_fertilizer_future = np.clip(baseline_fertilizer_future, 50, 200)
+
+
+######################################################################## 5.a.4 Constructing Baseline Future
 
     future_df = pd.DataFrame({
         "year": future_years,
@@ -125,5 +148,7 @@ def predict_baseline_future(df: pd.DataFrame,model_bundle: dict,years_ahead: int
 
     future_df["baseline_yield_kg_ha"] = model_bundle["model"].predict(X_future_scaled)
 
-    return future_df
 
+######################################################################## return statement
+
+    return future_df

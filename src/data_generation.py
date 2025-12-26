@@ -1,22 +1,27 @@
 import numpy as np
 import pandas as pd
 
-def generate_synthetic_data(seed: int = 123) -> pd.DataFrame :
+def generate_synthetic_data(seed: int = 123) -> pd.DataFrame:
     """
-    Generates statistically realistic synthetic agricultural data.
-    Returns a pandas DataFrame.
+    Creates fake but realistic agricultural data for simulation and analysis.
+    It uses random values with trends to mimic real-world farming conditions.
+    Takes a random seed so results can be reproduced.
+    Generates yearly data from 2000 to 2024.
+    Includes rainfall, temperature, soil health, irrigation, fertilizer, pests, and yield.
+    All values are kept within realistic limits.
+    Returns a pandas DataFrame where each row is one year.
     """
 
-########################################################################
+# headings are taken from : documentation_code.ipynb so that u can match and understand from teh notebook
+
+
+######################################################################## Setting parameters 
 
     np.random.seed(seed)
-
-########################################################################
-
     years = np.arange(2000,2025)
     n_years = len(years)
 
-########################################################################
+######################################################################## 1.a Rainfall
 
     baseline_rainfall = 800
     rainfall_trend = -3
@@ -28,14 +33,14 @@ def generate_synthetic_data(seed: int = 123) -> pd.DataFrame :
     rainfall_mm = ( baseline_rainfall + (rainfall_trend*(years - years[0])) + normal_variability + extreme_events)
     rainfall_mm = np.clip( rainfall_mm , 300 , None )
 
-########################################################################
+######################################################################## 1.b Temperature
 
     baseline_temperature = 25.0
     temperature_trends = +0.03
     temperature_noise = np.random.normal( loc=0 , scale=0.4 , size=n_years )
     temperature_c = (baseline_temperature + (temperature_trends*(years-years[0])) + temperature_noise)
 
-########################################################################
+######################################################################## 1.c Soil Index
 
     soil_index = np.zeros(n_years)
     soil_index[0] = 0.72
@@ -49,7 +54,7 @@ def generate_synthetic_data(seed: int = 123) -> pd.DataFrame :
         )
     soil_index = np.clip(soil_index, 0.5, 0.85)
 
-########################################################################
+######################################################################## 1.d Irrigation
 
     base_irrigation = 30.0  
     irrigation_trend = 1.0
@@ -59,9 +64,9 @@ def generate_synthetic_data(seed: int = 123) -> pd.DataFrame :
     irrigation_pct = ( base_irrigation + irrigation_trend * (years - years[0]) + rainfall_sensitivity * (rainfall_mm - mean_rainfall) + irrigation_noise )
     irrigation_pct = np.clip(irrigation_pct, 30, 70)
 
-########################################################################
+######################################################################## 1.e Fertilizers
 
-    base_fertilizer = 80.0
+    base_fertilizer = 80
     irrigation_effect = 0.8      # kg/ha per % irrigation
     soil_compensation = -60.0    # compensate poorer soil
     fertilizer_trend = 1.2       # intensification over time
@@ -69,7 +74,7 @@ def generate_synthetic_data(seed: int = 123) -> pd.DataFrame :
     fertilizer_kg_ha = ( base_fertilizer + irrigation_effect * irrigation_pct + soil_compensation * (soil_index - 0.7) + fertilizer_trend * (years - years[0]) + fertilizer_noise)
     fertilizer_kg_ha = np.clip(fertilizer_kg_ha, 50, 200)
 
-########################################################################
+######################################################################## 1.f Pest Pressure
 
     pest_pressure = np.random.uniform( low=0.1, high=0.5, size=n_years )
     outbreak_years = np.random.choice( n_years, size=3, replace=False )
@@ -77,7 +82,7 @@ def generate_synthetic_data(seed: int = 123) -> pd.DataFrame :
         pest_pressure[i] += np.random.uniform(0.4, 0.6)
     pest_pressure_index = np.clip(pest_pressure, 0.0, 1.0)
 
-########################################################################
+######################################################################## 1.g Yield
 
     base_yield = 2000
     rainfall_coeff = 2.5          # kg/ha per mm
@@ -89,9 +94,7 @@ def generate_synthetic_data(seed: int = 123) -> pd.DataFrame :
     pest_coeff = 800            # kg/ha at pest_pressure = 1
     yield_noise = np.random.normal( loc=0 , scale=150 , size=n_years )
     yield_decline_rate = 15  # kg/ha lost per year due to sustainability stress
-    system_stress = (
-        -yield_decline_rate * (years - years[0])
-    )
+    system_stress = (-yield_decline_rate * (years - years[0]))
     yield_kg_ha = (
         base_yield
         + rainfall_coeff * rainfall_mm
@@ -105,7 +108,7 @@ def generate_synthetic_data(seed: int = 123) -> pd.DataFrame :
     )
     yield_kg_ha = np.clip(yield_kg_ha, 0, None)
 
-########################################################################
+######################################################################## 2.a Dataframe
 
     data = pd.DataFrame({
         "year": years,
@@ -118,8 +121,7 @@ def generate_synthetic_data(seed: int = 123) -> pd.DataFrame :
         "yield_kg_ha": yield_kg_ha.round(0)
     })
 
-
-########################################################################
+######################################################################## return statement
 
     # return pd.DataFrame()
     return data

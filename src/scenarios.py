@@ -1,11 +1,23 @@
 import pandas as pd
 import numpy as np
 
-def run_intervention_scenario(baseline_future: pd.DataFrame,model_bundle: dict,rates: dict) -> pd.DataFrame:
+# headings are taken from : documentation_code.ipynb so that u can match and understand from teh notebook
+
+
+######################################################################## 5.b Scenario Interventions
+
+def run_intervention_scenario(baseline_future: pd.DataFrame, model_bundle: dict, rates: dict) -> pd.DataFrame:
     """
-    Applies sustained annual percentage changes to baseline future factors
-    and predicts resulting yield.
+    Applies yearly percentage changes to future baseline factors.
+    Takes baseline future data and modifies it using given rates.
+    Changes are applied every year and compound over time.
+    Rates can increase or decrease rainfall, temperature, soil, irrigation, and fertilizer.
+    All values are kept within realistic physical limits.
+    Uses the trained model to predict yield after intervention.
+    Returns a DataFrame with updated factors and scenario yield.
     """
+
+######################################################################## 5.b.1 Calculation Future when an given Factor Changes at a specific rate
 
     scenario = baseline_future.copy()
 
@@ -31,17 +43,16 @@ def run_intervention_scenario(baseline_future: pd.DataFrame,model_bundle: dict,r
 
     return scenario
 
-def run_best_case_1pct_scenario(
-    baseline_future: pd.DataFrame,
-    model_bundle: dict
-) -> pd.DataFrame:
+######################################################################## 1% scenario (given in the notebook image)
+
+def run_best_case_1pct_scenario(baseline_future: pd.DataFrame,model_bundle: dict) -> pd.DataFrame:
     """
-    Best-case coordinated improvement scenario:
-    +1% rainfall
-    -1% temperature
-    +1% soil
-    +1% irrigation
-    +0% fertilizer
+    Runs an ideal improvement scenario with small yearly changes.
+    Rainfall, soil, and irrigation improve by 1% per year.
+    Temperature reduces by 1% per year.
+    Fertilizer use is kept the same.
+    This shows how small, coordinated improvements affect yield.
+    Returns a DataFrame with predicted best-case yield.
     """
 
     rates = {
