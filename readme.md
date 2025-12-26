@@ -55,6 +55,57 @@ This repository contains a **proof-of-concept prototype** with the following sco
 
 ---
 
+---
+## How To Use :
+
+1. Check Python version (_3.9 above_)
+```bash
+python --version
+```
+
+2. Clone Repository
+```bash
+git clone https://github.com/Abhinav08bhatt/AgriTrend_simulation.git
+```
+  - Move inside the repo :
+```
+cd AgriTrend-simulation
+```
+
+3. Create a Virtual Environment (_recommended_)
+
+  - Windows : 
+```bash
+python -m venv venv
+```
+```bash
+venv\Scripts\activate
+```
+
+  - macOS / Linux / Arch
+```bash
+python3 -m venv venv
+```
+```bash
+source venv/bin/activate
+```
+
+4. Install Requirements :
+```bash
+pip install -r requirements.txt
+```
+
+5. Run the Simulation :
+```bash
+python3 AgriTrend_simulation.py
+```
+
+6. Final Report : (Location : `outputs/reports/universal_data.pdf`)
+```bash
+cd outputs/reports/universal_data.pdf
+```
+---
+
 ## Current Results
 
 -
