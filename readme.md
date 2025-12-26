@@ -97,7 +97,7 @@ pip install -r requirements.txt
 
 5. Run the Simulation :
 ```bash
-python3 AgriTrend_simulation.py
+python AgriTrend_simulation.py
 ```
 
 6. Final Report : (Location : `outputs/reports/universal_data.pdf`)
