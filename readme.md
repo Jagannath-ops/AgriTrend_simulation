@@ -2,29 +2,34 @@
 
 ### Crop Yield Trend Analysis & Scenario Simulation Framework
 
-AgriTrend_simulation is a research-oriented simulation project designed to study long term crop yield behavior under environmental and management stress.
+AgriTrend_simulation is a research-oriented simulation project designed to study
+long-term crop yield behavior under environmental and management stress.
 
-Instead of focusing on short-term prediction accuracy, the project emphasizes:
+The project emphasizes:
 - explainability
 - trend analysis
-- system-level understanding
 - scenario-based reasoning
+- automated report generation
 
-This prototype was developed for **Hack The Winter : Round 1**, with the goal of demonstrating clear system thinking and modular design.
+The system processes data through a **complete analysis pipeline** and
+automatically generates **visualizations** and a **structured PDF report**
+summarizing trends, factor influence, and future scenarios.
+
+This prototype was developed for **Hack The Winter : Round 1**, with the goal of
+demonstrating clear system thinking, modular design, and research-oriented analysis.
 
 ---
 
 ## Problem Statement
 
-Modern agriculture is under increasing pressure from climate change, soil
-degradation, and growing input dependency.
+Modern agriculture is under increasing pressure from climate change, soil degradation, and growing input dependency.
 
 In many cases:
-- irrigation and fertilizer usage increase every year
-- crop yield does not improve at the same rate
-- yield becomes more unstable over time
+- Irrigation and fertilizer usage increase every year,
+- Crop yield does not improve at the same rate,
+- Yield becomes more unstable over time.
 
-Most existing solutions either focus on short term prediction or rely on API, black-box models that are difficult to interpret.
+Most existing solutions either focus on short term prediction or rely on API, black-box models that are difficult to explain.
 
 There is a need for a transparent system that answers a simpler but more important question:
 
@@ -34,32 +39,42 @@ There is a need for a transparent system that answers a simpler but more importa
 
 ## Solution Overview
 
-AgriTrend_simulation addresses this problem by providing a structured and explainable simulation pipeline that:
-- generates realistic synthetic agricultural data
-- analyzes long-term relationships between factors and yield
-- identifies which factors matter most
-- projects a baseline future assuming no intervention
-- compares it against controlled improvement scenarios
+AgriTrend_simulation addresses this problem by providing a structured and explainable simulation pipeline that :
+1. Generates realistic synthetic agricultural data,
+2. Analyzes long term relationships between factors and yield,
+3. Identifies which factors matter most,
+4. Projects a baseline future assuming no intervention,
+5. Compares it against controlled improvement scenarios.
 
-**The system does not aim to predict exact future yields. Instead, it highlights long-term patterns, risks, and trade-offs.**
+**The system does not aim to predict exact future yields. Instead, it highlights long term patterns, risks, and trade offs.**
 
 ---
 
 ## Prototype Scope (Round 1)
 
-This repository contains a **proof of concept prototype** with the following scope:
+This repository contains a **proof of concept prototype** with the following scope :
 
 ### Data Assumptions
 - One synthetic region
 - One synthetic crop
-- Year wise tabular data (CSV)
-- ~25 years of historical data
+- Year wise tabular data (CSV) (_~25 years_)
 - Statistically realistic trends and variability
 
 ### Modeling Approach
 - Linear regression (raw + standardized)
 - Focus on interpretability over complexity
 - No black-box or deep learning models
+
+
+### Result of Simulation
+- Historical yield shows increasing instability over time
+- Input intensification does not guarantee yield growth
+- Standardized analysis highlights dominant yield drivers
+- Baseline future shows gradual decline and higher risk
+- Coordinated 1% improvements significantly stabilize outcomes
+
+> These results are exploratory and meant to highlight system behavior,
+not to provide exact predictions.
 
 
 <details>
@@ -81,47 +96,28 @@ This repository contains a **proof of concept prototype** with the following sco
 </details>
 
 
-<details>
-<summary><b>Project structure (high level)</b></summary>
-
-- `src/` — core simulation and analysis code  
-- `data/` — synthetic and future real datasets  
-- `notebooks/` — explanation and documentation notebooks  
-- `outputs/graphs/` — generated visualizations  
-- `outputs/reports/` — final PDF report  
-- `AgriTrend_simulation.py` — main execution file  
-
-Each folder includes its own `README.md` for clarity.
-
-<br></br>
-</details>
-
-
-### Result of Simulation
-- Historical yield shows increasing instability over time
-- Input intensification does not guarantee yield growth
-- Standardized analysis highlights dominant yield drivers
-- Baseline future shows gradual decline and higher risk
-- Coordinated 1% improvements significantly stabilize outcomes
-
-> These results are exploratory and meant to highlight system behavior,
-not to provide exact predictions.
-
 ---
 
 <details>
-<summary><b>Documentation Notebook (Recommended)</b></summary>
+<summary><b>Project structure</b></summary>
 
-The Jupyter notebook below explains the full pipeline step by step:
+- Must go through the [**RepoWorking**](RepoWorking.md) file to know the use the real structure.
+- Each folder includes its own `README.md` for clarity.
+</details>
+
+<details>
+<summary><b>Documentation Notebook (Recommended)</b></summary>
+<br>
+
+Notebook : [**Documentation Notebook**](/notebooks/documentation_code.ipynb)
+
+The Jupyter notebook below explains the full pipeline step by step :
 - data generation logic
 - analysis reasoning
 - model behavior
 - scenario design
 - interpretation of results
 
-Notebook : [**Documentation Notebook**](/notebooks/documentation_code.ipynb)
-
-Strongly recommended if you want to understand the project
 > This notebook is not required to run the project, but it provides the best context for understanding the design decisions.
 </details>
 
@@ -152,7 +148,7 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-- macOS / Linux / Arch
+- macOS / Linux 
 ```bash
 python3 -m venv venv
 ```
@@ -182,18 +178,16 @@ open outputs/reports/universal_data.pdf
 - Linear modeling only
 - No regional or crop diversity
 - No economic or policy constraints
-- Focused on trends rather than accuracy
 
 > These limitations are intentional for a clean and explainable prototype.
 
 ## Future Work (Round 2 Plan)
 Planned extensions include:
 - GUI interface (local web app or Flutter-based app)
-- Multiple selectable crops and regions
-- Expanded synthetic datasets
+- Multiple selectable crops and regions (_synthetic_)
 - Improved data handling and validation
-- Integration of real-world datasets
-- Interactive scenario exploration
+- Integration of real-world datasets (_if possible_)
+- Interactive scenario experimentation
 
 ## Team
 >This project was developed by a 4-member team **The Eskimos!** as part of Hack The Winter:
