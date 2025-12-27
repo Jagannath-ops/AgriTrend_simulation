@@ -36,6 +36,8 @@ There is a need for a transparent system that answers a simpler but more importa
 **If current trends continue, what happens to crop yield in the long run and what changes actually matter?**
 
 ---
+## Theme 
+- ### AI/ML
 
 ## Solution Overview
 
