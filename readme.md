@@ -67,7 +67,6 @@ This repository contains a **proof of concept prototype** with the following sco
 - Focus on interpretability over complexity
 - No black-box or deep learning models
 
-
 ### Result of Simulation
 - Historical yield shows increasing instability over time
 - Input intensification does not guarantee yield growth
@@ -76,6 +75,10 @@ This repository contains a **proof of concept prototype** with the following sco
 - Coordinated 1% improvements significantly stabilize outcomes
 
 > These results are exploratory and meant to highlight system behavior,not to provide exact predictions.
+
+### **Recommended** Page To View : _(for a better understanding of the project)_
+- [**Repo Working**](RepoWorking.md)
+- [**Documentation Notebook**](/notebooks/documentation_code.ipynb)
 
 ### Preview 
 ![image](./preview/Documentation.png) ![image](./preview/AutoGenerate.png)
@@ -109,7 +112,7 @@ This repository contains a **proof of concept prototype** with the following sco
 </details>
 
 <details>
-<summary><b>Documentation Notebook (Recommended)</b></summary>
+<summary><b>Documentation Notebook (<strong>Recommended</strong>)</b></summary>
 <br>
 
 Notebook : [**Documentation Notebook**](/notebooks/documentation_code.ipynb)
