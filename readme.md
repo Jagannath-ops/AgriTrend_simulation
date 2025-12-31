@@ -75,9 +75,10 @@ This repository contains a **proof of concept prototype** with the following sco
 - Baseline future shows gradual decline and higher risk
 - Coordinated 1% improvements significantly stabilize outcomes
 
-> These results are exploratory and meant to highlight system behavior,
-not to provide exact predictions.
+> These results are exploratory and meant to highlight system behavior,not to provide exact predictions.
 
+### Preview 
+![image](./preview/Documentation.png) ![image](./preview/AutoGenerate.png)
 
 <details>
 <summary><b>What the prototype does / does not do</b></summary>
